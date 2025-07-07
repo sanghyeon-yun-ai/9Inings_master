@@ -23,11 +23,12 @@ header {
   z-index: 100;
   transition: all 0.1s ease;
   background: #fff;
+  padding: 0 2rem;
 }
 
 body {
   color: #132448e1;
-  font-size: clamp(1vw, 1.6rem, 2vw);
+  font-size: 1.6rem;
   font-family: "GmarketSansMedium", "Pretendard-Regular", sans-serif;
 }
 
@@ -55,11 +56,13 @@ body {
   align-items: center;
 }
 .gnb {
+  padding: 0 1rem;
   width: 100%;
   max-width: 1000px;
   height: 79px;
   justify-content: space-between;
   gap: 3vw;
+  color: #182b4b;
   align-items: center;
   font-size: clamp(1.2rem, 1.6vw, 1.8rem);
   transition: all 0.5s ease-in-out;
@@ -162,7 +165,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 1rem;
+  gap: 2rem;
 }
 .game_mode img {
   max-width: 60rem;
@@ -173,7 +176,7 @@ main {
 .bottom_row {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  gap: 2rem;
   padding: 10px;
   box-sizing: border-box;
   grid-column: span 3;
@@ -251,6 +254,9 @@ main {
 .item > p:first-of-type {
   margin: 1rem 0 2rem;
 }
+.item p {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
 .club_wrap {
   flex-direction: column;
   align-items: center;
@@ -279,10 +285,9 @@ main {
 .club h3 {
   font-size: 2.4rem;
   line-height: 40px;
-  padding-left: 4rem;
-  background: url(../images/MD_B.png) no-repeat 0 0;
-  background-size: 32px 32px;
-  padding-bottom: 3rem;
+  padding: 2rem 0 3rem 4rem;
+  background: url(../images/MD_B.png) no-repeat 0 2rem;
+  background-size: 3.2rem 3.2rem;
 }
 .club li {
   width: 100%;
@@ -309,7 +314,12 @@ main {
 .sidebar li ~ li {
   border-top: 1px #ccc solid;
 }
+.club p {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+}
 footer {
+  font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+  padding: 0 2rem;
   height: 200px;
   background-color: #132448;
   color: #f0f0f0;
