@@ -6,8 +6,8 @@
     <title>COM2US 9innings</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style_web.css" />
-    <link rel="stylesheet" href="css/tb_style.css" media="(max-width:900px)" />
-    <link rel="stylesheet" href="css/mb_style.css" media="(max-width:430px)" />
+    <link rel="stylesheet" href="css/tb_style.css" media="(max-width:850px)" />
+    <link rel="stylesheet" href="css/mb_style.css" media="(max-width:450px)" />
   </head>
   <body>
     <header>
@@ -49,7 +49,7 @@
       <div>
         <img src="images/main-b1_photo.jpg" alt="" class="first_img" />
       </div>
-      <section class="inner flex first">
+      <section class="info inner flex first">
         <iframe
           width="560"
           height="315"
@@ -90,8 +90,12 @@
         </section>
       </section>
 
-      <section class="info graphic inner">
-        <h2>실제와 같은 그래픽으로 다양한 게임모드를 즐겨보세요</h2>
+      <section class="info graphic inner" id="mode">
+        <h2>
+          <span class="sky_impact">실제와</span> 같은 그래픽으로<br />
+          <span class="red_impact">다양한</span>
+          게임모드를 즐겨보세요
+        </h2>
         <div class="game_mode_wrap">
           <div class="game_mode inner">
             <div class="box1">
@@ -99,7 +103,7 @@
                 src="screen_capture/KakaoTalk_20250620_160909136_19.png"
                 alt=""
               />
-              <p>실제 MLB 일정대로 즐길수있는</p>
+              <p class="pc">실제 MLB 일정대로 즐길수있는</p>
               <p>리그모드</p>
             </div>
             <div class="box1">
@@ -107,7 +111,7 @@
                 src="screen_capture/KakaoTalk_20250620_160909136_14.png"
                 alt=""
               />
-              <p>다른유저들과 치열한 순위 경쟁을 할수있는</p>
+              <p class="pc">다른유저들과 치열한 순위 경쟁을 할수있는</p>
               <p>랭킹대전</p>
             </div>
             <div class="bottom_row flex">
@@ -116,7 +120,7 @@
                   src="screen_capture/KakaoTalk_20250620_160909136_11.png"
                   alt=""
                 />
-                <p>홈런의 짜릿한 손맛을 즐겨보세요</p>
+                <p class="pc">홈런의 짜릿한 손맛을 즐겨보세요</p>
                 <p>아케이드모드</p>
               </div>
               <div class="box2">
@@ -124,7 +128,7 @@
                   src="screen_capture/KakaoTalk_20250626_090112278.png"
                   alt=""
                 />
-                <p>실제 게임 실력을 뽑낼수있는</p>
+                <p class="pc">실제 게임 실력을 뽑낼수있는</p>
                 <p>실시간 대전</p>
               </div>
               <div class="box2">
@@ -132,14 +136,14 @@
                   src="screen_capture/KakaoTalk_20250620_160909136_10.png"
                   alt=""
                 />
-                <p>타격실력을 점검하고 즐길수있는</p>
+                <p class="pc">타격실력을 점검하고 즐길수있는</p>
                 <p>커리어 모드</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="inner flex info card">
+      <section class="inner flex info card" id="card">
         <h2>
           <span class="sky_impact">역사를</span> 써내려가고 <br /><span
             class="sky_impact"
@@ -300,8 +304,11 @@
         </div>
       </section>
 
-      <section class="inner flex info item_wrap">
-        <h2>다양한 아이템으로 나의 팀을 강화해 보세요</h2>
+      <section class="inner flex info item_wrap" id="item">
+        <h2>
+          <span class="sky_impact">다양한</span> 아이템으로
+          <span class="red_impact">나의 팀을</span> 강화해 보세요
+        </h2>
         <ul class="item_list">
           <li class="item">
             <h3>
@@ -355,12 +362,12 @@
               />
             </h3>
             <p>파워아이템</p>
-            <p>한번의 사용으로 효율 극대화</p>
+            <p>선수의 효율 극대화</p>
           </li>
         </ul>
       </section>
 
-      <section class="club_wrap flex">
+      <section class="club_wrap flex" id="club">
         <h2>유저들과 협동해서 즐기는 클럽모드</h2>
         <ul class="club">
           <li>
@@ -389,13 +396,24 @@
             <p>&#35; 두번의 기회</p>
           </li>
           <li>
-            <h3>클럽 파워랭킹 토너먼트</h3>
+            <h3>파워랭킹 토너먼트</h3>
             <p>&#35; 최강의 32개의 클럽에게 주어진 특권</p>
             <p>&#35; 승부예측은 모두의 권리</p>
           </li>
         </ul>
       </section>
+      <aside class="sidebar">
+        <h2 class="blind">안내 바</h2>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#mode">Game Mode</a></li>
+          <li><a href="#card">Player Card</a></li>
+          <li><a href="#item">Item</a></li>
+          <li><a href="#club">Club</a></li>
+        </ul>
+      </aside>
     </main>
+
     <footer class="flex">
       <div>
         <p>
