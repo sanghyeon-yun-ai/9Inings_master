@@ -64,10 +64,7 @@
 .box2 {
   width: 100%;
 }
-.box1 img,
-.box2 img {
-  height: auto;
-}
+
 .game_mode {
   display: flex;
   flex-direction: column;
@@ -77,6 +74,7 @@
 .game_mode img,
 .bottom_row img {
   max-width: none;
+  height: 20rem;
 }
 .game_mode p {
   font-size: clamp(1.8rem, 2vw, 2rem);
