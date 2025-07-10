@@ -1,113 +1,3 @@
-@charset "utf-8";
-@font-face {
-  font-family: "GmarketSansMedium";
-  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-html {
-  font-size: 62.5%;
-  scroll-behavior: smooth;
-}
-header {
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  transition: all 0.1s ease;
-  background: #fff;
-  padding: 0 2rem;
-}
-
-body {
-  color: #132448e1;
-  font-size: 1.6rem;
-  font-family: "GmarketSansMedium", "Pretendard-Regular", sans-serif;
-}
-
-.inner {
-  width: 100%;
-  max-width: 1250px;
-  margin: auto;
-}
-.red_impact {
-  color: #ce1141;
-  font-weight: 600;
-}
-.sky_impact {
-  font-weight: 600;
-  color: #1e90ff;
-}
-.logo img {
-  display: block;
-  width: 19rem;
-  background: none;
-}
-
-.header {
-  justify-content: space-between;
-  align-items: center;
-}
-.gnb {
-  padding: 0 1rem;
-  width: 100%;
-  max-width: 1000px;
-  height: 79px;
-  justify-content: space-between;
-  gap: 3vw;
-  color: #182b4b;
-  align-items: center;
-  font-size: clamp(1.2rem, 1.6vw, 1.8rem);
-  transition: all 0.5s ease-in-out;
-}
-.gnb > li:hover {
-  scale: 1.2;
-  transition: all 0.6s ease-in-out;
-}
-.sns {
-  align-items: center;
-}
-.sns li {
-  justify-content: center;
-  padding-right: 10px;
-}
-.Naver_cafe::before,
-.FB::before {
-  content: "|";
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 8px 12px 0;
-}
-.Naver_cafe:after {
-  content: "";
-  display: inline-block;
-  background-image: url(../images/com2usSP.png);
-  background-repeat: no-repeat;
-  background-position: -30px -180px;
-  background-size: 200px 360px;
-  width: 30px;
-  height: 30px;
-  margin-top: 13px;
-}
-.FB:after {
-  content: "";
-  display: inline-block;
-  background-image: url(../images/com2usSP.png);
-  background-repeat: no-repeat;
-  background-position: 0 -180px;
-  background-size: 200px 360px;
-  width: 30px;
-  height: 30px;
-  margin-top: 13px;
-}
-
 main {
   position: relative;
 }
@@ -147,7 +37,7 @@ main {
 .downLoad img {
   width: 100%;
   max-width: 21.5rem;
-  height: 6.4rem;
+  height: auto;
 }
 
 .info {
@@ -317,16 +207,7 @@ main {
 .club p {
   font-size: clamp(1.2rem, 2vw, 1.6rem);
 }
-footer {
-  font-size: clamp(1.4rem, 2.8vw, 1.8rem);
-  padding: 0 2rem;
-  height: 200px;
-  background-color: #132448;
-  color: #f0f0f0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+
 @media screen and (max-width: 1549px) {
   .sidebar {
     display: none;
@@ -339,5 +220,17 @@ footer {
   .club_wrap {
     height: 100%;
     padding: 3rem 0 7rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .item_list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .item {
+    width: 45%;
+    height: 100%;
   }
 }

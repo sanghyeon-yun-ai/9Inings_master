@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="stylesheet" href="css/player_card.css" />
+    <link rel="stylesheet" href="css/tb_style.css" media="(max-width:850px)" />
+    <link rel="stylesheet" href="css/mb_style.css" media="(max-width:450px)" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="App">
+      <header>
+        <div class="header inner flex">
+          <h1 class="logo">
+            <a href="index.html"
+              ><img src="images/logo_design_final.png" alt="9이닝스 공식 로고"
+            /></a>
+          </h1>
+          <nav class="pc">
+            <ul class="flex gnb">
+              <li><a href="history.html">History</a></li>
+              <li><a href="game_mode.html">Game mode</a></li>
+              <li><a href="player_card.html">Player Card</a></li>
+              <li><a href="items.html">Items</a></li>
+              <li><a href="club.html">club</a></li>
+            </ul>
+          </nav>
+          <div class="flex">
+            <h2 class="blind">공식sns</h2>
+            <ul class="sns flex">
+              <li class="pc">
+                <a href="https://com2us.com/corporation" class="com2us"
+                  ><img src="images/com2us_small_logo.png" alt=""
+                /></a>
+              </li>
+              <li class="pc">
+                <a href="https://www.facebook.com/mlb9inningskr" class="FB"></a>
+              </li>
+              <li class="pc">
+                <a
+                  href="https://cafe.naver.com/mlb9innings"
+                  class="Naver_cafe"
+                ></a>
+              </li>
+              <li class="util_menu mb" @click="isMenuOpen = true">
+                <i class="fa-solid fa-bars"></i>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="menu_overlay"
+            v-if="isMenuOpen"
+            @click.self="isMenuOpen = false"
+          >
+            <div class="side_nav">
+              <!-- 닫기 버튼 -->
+              <i
+                class="fa-solid fa-xmark close_btn"
+                @click="isMenuOpen = false"
+              ></i>
+
+              <!-- 메뉴 내용 -->
+              <nav>
+                <ul class="util_gnb">
+                  <li><a href="history.html">History</a></li>
+                  <li><a href="game_mode.html">Game mode</a></li>
+                  <li><a href="player_card.html">Player Card</a></li>
+                  <li><a href="items.html">Items</a></li>
+                  <li><a href="club.html">Club</a></li>
+                </ul>
+              </nav>
+
+              <!-- SNS 내용 -->
+              <ul class="sns util_sns flex">
+                <li>
+                  <a href="https://com2us.com/corporation" class="com2us"
+                    ><img src="images/com2us_small_logo.png" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/mlb9inningskr"
+                    class="FB"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://cafe.naver.com/mlb9innings"
+                    class="Naver_cafe"
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <!--카드타입 설명 시작-->
+        <section class="inner card_tab_wrap">
+          <h2 class="card_type_subtitle">Card Type</h2>
+          <div class="button_group flex inner">
+            <button
+              v-for="type in cardTypes"
+              :key="type"
+              :class="{ active: selectedType === type }"
+              class="type"
+              @click="selectType(type)"
+              :style="{ backgroundImage: cardImages[type], backgroundSize: 'auto 80%', backgroundPosition: '10px center', backgroundRepeat: 'no-repeat' }"
+            >
+              {{ type }}
+            </button>
+          </div>
+        </section>
+        <section class="card_wrap inner">
+          <div
+            class="card_info"
+            v-for="(card, index) in filteredCards"
+            :key="index"
+          >
+            <div class="images grid">
+              <p class="small_title">{{card.font}}</p>
+              <p class="small_title">{{card.back}}</p>
+              <img :src="card.img1" alt="" />
+              <img :src="card.img2" alt="" />
+            </div>
+
+            <h3 class="card_type">선수타입: {{ card.type }}</h3>
+            <p class="card_feature">카드특징: {{ card.feature }}</p>
+            <p class="card_affect">효과: {{ card.affect }}</p>
+            <p class="card_source">획득경로: {{ card.source }}</p>
+          </div>
+        </section>
+        <!--카드타입 설명 끝-->
+      </main>
+    </div>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            isMenuOpen: false,
+            selectedType: "슈프림",
+            cardTypes: [
+              "슈프림",
+              "시그니처",
+              "레전드",
+              "프라임",
+              "올스타",
+              "빈티지",
+              "Live",
+              "일반",
+            ],
+            cardImages: {
+              슈프림: 'url("screen_capture/1st_historic.png")',
+              시그니처: 'url("screen_capture/signature_pack.png")',
+              레전드: 'url("screen_capture/legend_pack.png")',
+              프라임: 'url("screen_capture/prime_pack.png")',
+              올스타: 'url("screen_capture/allstar_pack.png")',
+              빈티지: 'url("screen_capture/vintige_normal.png")',
+              Live: 'url("screen_capture/all_Live_dia.png")',
+              일반: 'url("screen_capture/all_dia.png")',
+            },
+            cards: [
+              {
+                font: "Front",
+                back: "Back",
+                img1: "screen_capture/JoeDiMaggio_front.jpg",
+                img2: "screen_capture/JoeDiMaggio_back.jpg",
+                type: "슈프림",
+                feature:
+                  " 다른타입보다 스케일있는 역동적인 일러스트로 구성되어 있으며, 스탯창이 뒷면에 적혀져있고 상단에 카드의 획득순서가 기재되어있다.",
+                affect:
+                  "소속팀에 한정되지 않고 모든팀의 덱 보너스 스탯을 받고 컨디션이 최상 최하 단계까지 5단계로 되어있고, 최고강화 30레벨까지 가능",
+                source: "히스토릭팩 에서 획득 가능",
+              },
+              {
+                font: "Front",
+                back: "Back",
+                img1: "screen_capture/AaronJudge_front.jpg",
+                img2: "screen_capture/AaronJudge_back.jpg",
+                type: "시그니처",
+                feature:
+                  "역동적인 일러스트로 구성되어 있으며 선수의 사인이 들어가있다.",
+                affect: "덱 보너스를 1회 추가로 받는다 ",
+                source: "시그니처 관련선수팩,히스토릭팩 에서 획득 가능",
+              },
+              {
+                font: "Front",
+                back: "Back",
+                img1: "screen_capture/GregMaddux_front.jpg",
+                img2: "screen_capture/GregMaddux_back.jpg",
+                type: "레전드",
+                feature:
+                  "역동적인 일러스트로 구성되어 있으며 가운데 레전드 마크가 우측상단에는 카드의 획득순서가 기재되어있음, 스탯창이 뒷면에 적혀져있다.",
+                affect:
+                  "소속팀에 한정되지 않고 스킬의 초기 레벨이 3/3/3으로 고정되어있음",
+                source:
+                  "레전드 관련 선수팩,빈티지팩(고급,최고급),실버선수팩 이상의 일반 선수팩 에서 획득 가능",
+              },
+              {
+                font: "Front",
+                back: "Back",
+                img1: "screen_capture/ClaytonKershaw_front.jpg",
+                img2: "screen_capture/ClaytonKershaw_back.jpg",
+                type: "프라임",
+                feature:
+                  "역동적인 일러스트로 되어있고, 배경화면에 스크래치 마크가 있다.",
+                affect:
+                  "컨디션이 항상 보통이상을 유지하며 등급상승량이 최고치를 유지하고 일반선수보다+5높음(블랙다이야는90)",
+                source:
+                  "프라임 관련 선수팩,실버선수팩 이상의 일반 선수팩 에서 획득가능",
+              },
+              {
+                font: "Front",
+                back: "Back",
+                img1: "screen_capture/OhtaniShohei_front.jpg",
+                img2: "screen_capture/OhtaniShohei_back.jpg",
+                type: "올스타",
+                feature:
+                  "카드앞면 왼쪽에 각시즌의 올스타마크가 기재되어있고 선수의 일러스트 올스타모자 착용",
+                affect: "올스타 전용 덱보너스를 받을수있음",
+                source: "올스타 관련 선수팩에서 획득가능",
+              },
+              {
+                font: "Front",
+                back: "Back",
+                img1: "screen_capture/NolanRyan_front.jpg",
+                img2: "screen_capture/NolanRyan_back.jpg",
+                type: "빈티지",
+                feature: "역동적인 일러스트,1999년이전의 선수들로 구성",
+                affect: "",
+                source: "빈티지 일반팩 이상,히스토릭팩 에서 획득 가능",
+              },
+              {
+                font: "Front",
+                back: "Back",
+                img1: "screen_capture/JeonghooLee_front.jpg",
+                img2: "screen_capture/JeonghooLee_back.jpg",
+                type: "Live",
+                feature:
+                  "카드앞면 왼쪽에 각시즌의 Live마크에 해당 년도 기재되어있음 ,해당시즌의 선수들만 부여한다. ",
+                affect:
+                  "당해년도 시즌중에 Live덱 효과를 받을수있다.(단 시즌 종료 후 일반 선수로 전환됨)",
+                source: "Live마크가 붙은 일반 선수팩이상에서 획득 가능",
+              },
+              {
+                font: "Front",
+                back: "Back",
+                img1: "screen_capture/TarickSkubal_front.jpg",
+                img2: "screen_capture/TarickSkubal_back.jpg",
+                type: "일반",
+                feature: "기본적인 카드 2000년이후의 선수들로 구성",
+                affect: "효과 없음",
+                source: "일반 선수팩 이상에서 획득 가능",
+              },
+            ],
+          };
+        },
+        mounted() {
+          document.addEventListener("keydown", this.handleEsc);
+        },
+        beforeUnmount() {
+          document.removeEventListener("keydown", this.handleEsc);
+        },
+        computed: {
+          filteredCards() {
+            return this.cards.filter((card) => card.type === this.selectedType);
+          },
+        },
+        methods: {
+          handleEsc(e) {
+            if (e.key === "Escape") this.isMenuOpen = false;
+          },
+          selectType(type) {
+            this.selectedType = type;
+          },
+        },
+      });
+      app.mount("#App");
+    </script>
+    <footer class="flex">
+      <div>
+        <p>
+          본 페이지는 수익 창출을 위한 사이트가 아닌 개인 포트폴리오 용도 및
+          게임 공략 용도로 제작 되었으며 사진을 무단 사용할경우 저작권이 있는
+          사이트로 부터 불이익을 받을수있습니다.
+        </p>
+        <address>@copyright master</address>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -5,71 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/style_web.css" />
+    <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/history.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="css/history.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
-    <header>
-      <div class="header inner flex">
-        <h1 class="logo">
-          <a href="index.html"
-            ><img src="images/logo_design_final.png" alt="9이닝스 공식 로고"
-          /></a>
-        </h1>
-        <nav>
-          <ul class="flex gnb">
-            <li><a href="history.html">History</a></li>
-            <li><a href="game_mode.html">Game mode</a></li>
-            <li><a href="player_card.html">Player Card</a></li>
-            <li><a href="items.html">Items</a></li>
-            <li><a href="club.html">club</a></li>
-          </ul>
-        </nav>
-        <div class="flex">
-          <h2 class="blind">공식sns</h2>
-          <ul class="sns flex">
-            <li>
-              <a href="https://com2us.com/corporation" class="com2us"
-                ><img src="images/com2us_small_logo.png" alt=""
-              /></a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/mlb9inningskr" class="FB"></a>
-            </li>
-          </ul>
-          <li>
-            <a href="https://cafe.naver.com/mlb9innings" class="Naver_cafe"></a>
-          </li>
+    <div id="App">
+      <header>
+        <div class="header inner flex">
+          <h1 class="logo">
+            <a href="index.html"
+              ><img src="images/logo_design_final.png" alt="9이닝스 공식 로고"
+            /></a>
+          </h1>
+          <nav class="pc">
+            <ul class="flex gnb">
+              <li><a href="history.html">History</a></li>
+              <li><a href="game_mode.html">Game mode</a></li>
+              <li><a href="player_card.html">Player Card</a></li>
+              <li><a href="items.html">Items</a></li>
+              <li><a href="club.html">club</a></li>
+            </ul>
+          </nav>
+          <div class="flex">
+            <h2 class="blind">공식sns</h2>
+            <ul class="sns flex">
+              <li class="pc">
+                <a href="https://com2us.com/corporation" class="com2us"
+                  ><img src="images/com2us_small_logo.png" alt=""
+                /></a>
+              </li>
+              <li class="pc">
+                <a href="https://www.facebook.com/mlb9inningskr" class="FB"></a>
+              </li>
+              <li class="pc">
+                <a
+                  href="https://cafe.naver.com/mlb9innings"
+                  class="Naver_cafe"
+                ></a>
+                 <li class="util_menu mb" @click="isMenuOpen = true">
+                <i class="fa-solid fa-bars"></i>
+              </li>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </header>
+        <!-- 슬라이드 메뉴 오버레이 -->
+        <div
+          class="menu_overlay"
+          v-if="isMenuOpen"
+          @click.self="isMenuOpen = false"
+        >
+          <div class="side_nav">
+            <!-- 닫기 버튼 -->
+            <i
+              class="fa-solid fa-xmark close_btn"
+              @click="isMenuOpen = false"
+            ></i>
 
+            <!-- 메뉴 내용 -->
+            <nav>
+              <ul class="util_gnb">
+                <li><a href="history.html">History</a></li>
+                <li><a href="game_mode.html">Game mode</a></li>
+                <li><a href="player_card.html">Player Card</a></li>
+                <li><a href="items.html">Items</a></li>
+                <li><a href="club.html">Club</a></li>
+              </ul>
+            </nav>
+
+            <!-- SNS 내용 -->
+            <ul class="sns util_sns flex">
+              <li>
+                <a href="https://com2us.com/corporation" class="com2us"
+                  ><img src="images/com2us_small_logo.png" alt=""
+                /></a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/mlb9inningskr" class="FB"></a>
+              </li>
+              <li>
+                <a
+                  href="https://cafe.naver.com/mlb9innings"
+                  class="Naver_cafe"
+                ></a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </header>
+    </div>    
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            isMenuOpen: false,
+          };
+        },
+        mounted() {
+          document.addEventListener("keydown", this.handleEsc);
+        },
+        beforeUnmount() {
+          document.removeEventListener("keydown", this.handleEsc);
+        },
+        methods: {
+          handleEsc(e) {
+            if (e.key === "Escape") this.isMenuOpen = false;
+          },
+        },
+      });
+      app.mount("#App");
+    </script>
     <main>
-      <div>
-        <img src="images/main-b1_photo.jpg" alt="" class="first_img" />
-      </div>
-      <div class="board">
-        <h2 class="history inner">중요 업데이트 내역</h2>
-      </div>
       <div class="wrap inner">
+        <h2 class="update_title inner">중요 업데이트 내역</h2>
         <ul class="tab flex">
           <li class="tabmenu active" data-tab="menu1">
-            <a href="#">2025-2024</a>
+            <a href="#fixed">2025-2024</a>
           </li>
-          <li class="tabmenu" data-tab="menu2"><a href="#">2023-2022</a></li>
-          <li class="tabmenu" data-tab="menu3"><a href="#">2021-2020</a></li>
-          <li class="tabmenu" data-tab="menu4"><a href="#">2019-2018</a></li>
-          <li class="tabmenu" data-tab="menu5"><a href="#">2017-2016</a></li>
+          <li class="tabmenu" data-tab="menu2">
+            <a href="#fixed">2023-2022</a>
+          </li>
+          <li class="tabmenu" data-tab="menu3">
+            <a href="#fixed">2021-2020</a>
+          </li>
+          <li class="tabmenu" data-tab="menu4">
+            <a href="#fixed">2019-2018</a>
+          </li>
+          <li class="tabmenu" data-tab="menu5">
+            <a href="#fixed">2017-2016</a>
+          </li>
         </ul>
-        <div class="menu1 company_history active flex" id="menu1">
+        <div class="menu1 game_history active flex" id="menu1">
           <section class="flex">
-            <h3 class="year">25.05 ~ 25.04</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">05월</h4>
-                <ul class="working">
+            <h3 class="date">25.05 ~ 25.04</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">05월</h4>
+                <ul class="update">
                   <li>
                     v10.0.5업데이트(05.30)
                     <ul>
@@ -90,9 +170,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">04월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">04월</h4>
+                <ul class="update">
                   <li>
                     v10.0.4업데이트(04.24)
                     <ul>
@@ -110,11 +190,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">25.03 ~ 25.01</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">03월</h4>
-                <ul class="working">
+            <h3 class="date">25.03 ~ 25.01</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">03월</h4>
+                <ul class="update">
                   <li>
                     v10.0.02업데이트(03.28)
                     <ul>
@@ -130,7 +210,7 @@
                         -스킬개선(슬러거,투혼,수호신,이닝이터,그라운드볼러)
                       </li>
                       <li>-랭킹대전 매칭방식 및 UI개편(5경기 제도)</li>
-                      <li>-선수상점에서 월1회 시그니쳐팩 스타판매 3000스타</li>
+                      <li>-선수상점에서월1회 시그니쳐팩 스타판매 3000스타</li>
                       <li>
                         -선수 보관함 확장 기본76 &#61;&#62; 176 최대보관함 256
                         &#61;&#62; 376
@@ -149,9 +229,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex second_season">
-                <h4 class="season">02월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">02월</h4>
+                <ul class="update">
                   <li>
                     v10.0.1업데이트(02.28)
                     <ul>
@@ -163,9 +243,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">01월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">01월</h4>
+                <ul class="update">
                   <li>
                     2024년도 20차 Live 업데이트(01.22)
                     <ul>
@@ -187,11 +267,11 @@
           </section>
 
           <section class="flex">
-            <h3 class="year">24.12 ~ 24.10</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season flex">12월</h4>
-                <ul class="working">
+            <h3 class="date">24.12 ~ 24.10</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth flex">12월</h4>
+                <ul class="update">
                   <li>
                     2024년도 18차 Live업데이트(12.18)
                     <ul>
@@ -215,9 +295,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">11월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">11월</h4>
+                <ul class="update">
                   <li>
                     2024년도 17차 Live 업데이트(11.21)
                     <ul>
@@ -226,9 +306,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">10월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">10월</h4>
+                <ul class="update">
                   <li>
                     v9.1.1 업데이트(10.28)
                     <ul>
@@ -249,11 +329,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">24.09 ~ 24.07</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season flex">09월</h4>
-                <ul class="working">
+            <h3 class="date">24.09 ~ 24.07</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth flex">09월</h4>
+                <ul class="update">
                   <li>
                     2024년도 13차 Live업데이트(09.26)
                     <ul>
@@ -262,9 +342,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">08월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">08월</h4>
+                <ul class="update">
                   <li>
                     v9.0.9 업데이트(08.28)
                     <ul>
@@ -283,9 +363,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">07월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">07월</h4>
+                <ul class="update">
                   <li>
                     v9.0.7 업데이트(07.26)
                     <ul>
@@ -305,11 +385,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">24.06 ~ 24.04</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season flex">06월</h4>
-                <ul class="working">
+            <h3 class="date">24.06 ~ 24.04</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth flex">06월</h4>
+                <ul class="update">
                   <li>
                     v9.0.6업데이트(06.27)
                     <ul>
@@ -335,9 +415,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">05월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">05월</h4>
+                <ul class="update">
                   <li>
                     v9.0.5 업데이트(05.30)
                     <ul>
@@ -355,9 +435,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">04월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">04월</h4>
+                <ul class="update">
                   <li>
                     v9.0.4업데이트(04.25)
                     <ul>
@@ -370,11 +450,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">24.03 ~ 24.01</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season flex">03월</h4>
-                <ul class="working">
+            <h3 class="date">24.03 ~ 24.01</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth flex">03월</h4>
+                <ul class="update">
                   <li>
                     v9.0.2업데이트(03.28)
                     <ul>
@@ -408,9 +488,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">01월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">01월</h4>
+                <ul class="update">
                   <li>
                     v9.0.0업데이트
                     <ul>
@@ -429,13 +509,13 @@
             </div>
           </section>
         </div>
-        <div class="menu2 company_history" id="menu2">
+        <div class="menu2 game_history" id="menu2">
           <section class="flex">
-            <h3 class="year">23.12 ~ 23.10</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">하반기</h4>
-                <ul class="working">
+            <h3 class="date">23.12 ~ 23.10</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">12월</h4>
+                <ul class="update">
                   <li>
                     2023년도 19차 Live업데이트(12.21)
                     <ul>
@@ -450,9 +530,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">11월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">11월</h4>
+                <ul class="update">
                   <li>
                     2023년도 17차 Live업데이트(11/23)
                     <ul>
@@ -461,9 +541,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">10월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">10월</h4>
+                <ul class="update">
                   <li>
                     v8.1.2업데이트(10.26)
                     <ul>
@@ -483,11 +563,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">23.09 ~ 23.07</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">09월</h4>
-                <ul class="working">
+            <h3 class="date">23.09 ~ 23.07</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">09월</h4>
+                <ul class="update">
                   <li>
                     v8.1.1 업데이트
                     <ul>
@@ -508,9 +588,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">8월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">08월</h4>
+                <ul class="update">
                   <li>
                     v8.0.9업데이트(08.30)
                     <ul>
@@ -527,9 +607,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">7월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">07월</h4>
+                <ul class="update">
                   <li>
                     v8.0.7 업데이트(07.27)
                     <ul>
@@ -543,11 +623,11 @@
           </section>
 
           <section class="flex">
-            <h3 class="year">23.06 ~ 23.04</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season flex">06월</h4>
-                <ul class="working">
+            <h3 class="date">23.06 ~ 23.04</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth flex">06월</h4>
+                <ul class="update">
                   <li>
                     v8.0.6업데이트(06.28)
                     <ul>
@@ -568,9 +648,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">05월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">05월</h4>
+                <ul class="update">
                   <li>
                     v8.0.4업데이트(05.31)
                     <ul>
@@ -596,9 +676,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">04월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">04월</h4>
+                <ul class="update">
                   <li>
                     2023년 3차 Live 업데이트(04.27)
                     <ul>
@@ -627,11 +707,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">23.03 ~ 23.01</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">03월</h4>
-                <ul class="working">
+            <h3 class="date">23.03 ~ 23.01</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">03월</h4>
+                <ul class="update">
                   <li>
                     2023년 1차 Live 업데이트(03.29)
                     <ul>
@@ -656,9 +736,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">2월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">02월</h4>
+                <ul class="update">
                   <li>
                     v8.0.1업데이트(02.22)
                     <ul>
@@ -674,9 +754,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">1월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">01월</h4>
+                <ul class="update">
                   <li>
                     v8.0.0업데이트(01.18)
                     <ul>
@@ -689,11 +769,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">22.12 ~ 22.10</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">12월</h4>
-                <ul class="working">
+            <h3 class="date">22.12 ~ 22.10</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">12월</h4>
+                <ul class="update">
                   <li>
                     2022년 18차 Live 업데이트(12.22)
                     <ul>
@@ -709,9 +789,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">11월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">11월</h4>
+                <ul class="update">
                   <li>
                     2022년 16차 Live 업데이트(11.24)
                     <ul>
@@ -727,9 +807,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">10월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">10월</h4>
+                <ul class="update">
                   <li>
                     v7.1.3 업데이트(10.28)
                     <ul>
@@ -748,11 +828,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">22.09 ~ 22.07</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">9월</h4>
-                <ul class="working">
+            <h3 class="date">22.09 ~ 22.07</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">09월</h4>
+                <ul class="update">
                   <li>
                     v7.1.1 업데이트(09.29)
                     <ul>
@@ -763,9 +843,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">8월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">08월</h4>
+                <ul class="update">
                   <li>
                     v7.1.0 업데이트(08.30)
                     <ul>
@@ -775,9 +855,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">7월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">07월</h4>
+                <ul class="update">
                   <li>
                     v7.0.9 업데이트(07.25)
                     <ul>
@@ -791,11 +871,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">22.06 ~ 22.04</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">6월</h4>
-                <ul class="working">
+            <h3 class="date">22.06 ~ 22.04</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">06월</h4>
+                <ul class="update">
                   <li>
                     v7.0.8 업데이트(06.30)
                     <ul>
@@ -815,9 +895,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">5월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">05월</h4>
+                <ul class="update">
                   <li>
                     v7.0.7 업데이트(05.27)
                     <ul>
@@ -826,9 +906,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">4월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">04월</h4>
+                <ul class="update">
                   <li>
                     v7.0.4 업데이트(04.29)
                     <ul>
@@ -843,11 +923,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">22.03 ~ 22.01</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">3월</h4>
-                <ul class="working">
+            <h3 class="date">22.03 ~ 22.01</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">03월</h4>
+                <ul class="update">
                   <li>
                     v7.0.2 업데이트(03.30)
                     <ul>
@@ -869,9 +949,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">2월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">02월</h4>
+                <ul class="update">
                   <li>
                     v7.0.1업데이트(02.23)
                     <ul>
@@ -886,9 +966,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">1월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">01월</h4>
+                <ul class="update">
                   <li>
                     v7.0.0업데이트(01.19)
                     <ul>
@@ -904,13 +984,13 @@
             </div>
           </section>
         </div>
-        <div class="menu3 company_history" id="menu3">
+        <div class="menu3 game_history" id="menu3">
           <section class="flex">
-            <h3 class="year">21.12 ~ 21.10</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">12월</h4>
-                <ul class="working">
+            <h3 class="date">21.12 ~ 21.10</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">12월</h4>
+                <ul class="update">
                   <li>
                     2021년도 20차 Live업데이트(12.23)
                     <ul>
@@ -927,9 +1007,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">11월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">11월</h4>
+                <ul class="update">
                   <li>
                     2021년도 18차 Live업데이트(11.25)
                     <ul>
@@ -938,9 +1018,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">10월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">10월</h4>
+                <ul class="update">
                   <li>
                     2021년도 16차 Live업데이트(10.28)
                     <ul>
@@ -958,11 +1038,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">25.09 ~ 25.07</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">08월</h4>
-                <ul class="working">
+            <h3 class="date">25.09 ~ 25.07</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">08월</h4>
+                <ul class="update">
                   <li>
                     v6.0.8 업데이트(08.26)
                     <ul>
@@ -971,9 +1051,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">7월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">07월</h4>
+                <ul class="update">
                   <li>
                     2021년도 10차 Live업데이트(07.29)
                     <ul>
@@ -985,11 +1065,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">25.06 ~ 25.04</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">06월</h4>
-                <ul class="working">
+            <h3 class="date">25.06 ~ 25.04</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">06월</h4>
+                <ul class="update">
                   <li>
                     v6.0.6 업데이트(06.25)
                     <ul>
@@ -1014,9 +1094,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">5월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">05월</h4>
+                <ul class="update">
                   <li>
                     2021년도 4차 Live업데이트(05.06)
                     <ul>
@@ -1026,9 +1106,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">4월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">04월</h4>
+                <ul class="update">
                   <li>
                     v6.0.4 업데이트(04.29)
                     <ul>
@@ -1048,11 +1128,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">21.03 ~ 21.01</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">03월</h4>
-                <ul class="working">
+            <h3 class="date">21.03 ~ 21.01</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">03월</h4>
+                <ul class="update">
                   <li>
                     2021년도 1차 Live 업데이트(03.26)
                     <ul>
@@ -1070,9 +1150,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">02월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">02월</h4>
+                <ul class="update">
                   <li>
                     2020년도 21차 Live 업데이트(02.18)
                     <ul>
@@ -1090,11 +1170,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">20.12 ~ 20.10</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">12월</h4>
-                <ul class="working">
+            <h3 class="date">20.12 ~ 20.10</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">12월</h4>
+                <ul class="update">
                   <li>
                     2020년도 18차 Live 업데이트(12.24)
                     <ul>
@@ -1110,9 +1190,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">11월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">11월</h4>
+                <ul class="update">
                   <li>
                     2020년도 16차 Live 업데이트(11.26)
                     <ul>
@@ -1123,9 +1203,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">10월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">10월</h4>
+                <ul class="update">
                   <li>
                     2020년도 14차 Live 업데이트(10.29)
                     <ul>
@@ -1143,11 +1223,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">20.09 ~ 20.07</h3>
-            <div class="news">
-              <section class="award flex second_season">
-                <h4 class="season">09월</h4>
-                <ul class="working">
+            <h3 class="date">20.09 ~ 20.07</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">09월</h4>
+                <ul class="update">
                   <li>
                     v5.0.9 업데이트(09.28)
                     <ul>
@@ -1164,9 +1244,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">8월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">08월</h4>
+                <ul class="update">
                   <li>
                     v5.0.7 업데이트(08.26)
                     <ul>
@@ -1182,9 +1262,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex first_season">
-                <h4 class="season">7월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">07월</h4>
+                <ul class="update">
                   <li>
                     v5.0.6 업데이트(07.29)
                     <ul>
@@ -1208,11 +1288,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">20.06 ~ 20.04</h3>
-            <div class="news">
-              <section class="award flex">
-                <h4 class="season">06월</h4>
-                <ul class="working">
+            <h3 class="date">20.06 ~ 20.04</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">06월</h4>
+                <ul class="update">
                   <li>
                     신규 시그니쳐 추가 업데이트(06.30)
                     <ul>
@@ -1227,9 +1307,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex">
-                <h4 class="season">05월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">05월</h4>
+                <ul class="update">
                   <li>
                     v5.0.4 업데이트(05.28)
                     <ul>
@@ -1244,9 +1324,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex">
-                <h4 class="season">04월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">04월</h4>
+                <ul class="update">
                   <li>
                     v5.0.3 업데이트(04.27)
                     <ul>
@@ -1267,11 +1347,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">20.03 ~ 20.01</h3>
-            <div class="news">
-              <section class="award flex">
-                <h4 class="season">03월</h4>
-                <ul class="working">
+            <h3 class="date">20.03 ~ 20.01</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">03월</h4>
+                <ul class="update">
                   <li>
                     v5.0.2 업데이트(03.24)
                     <ul>
@@ -1289,9 +1369,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex">
-                <h4 class="season">02월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">02월</h4>
+                <ul class="update">
                   <li>
                     2019년도 25차 Live 업데이트(02.06)
                     <ul>
@@ -1303,9 +1383,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex">
-                <h4 class="season">01월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">01월</h4>
+                <ul class="update">
                   <li>
                     v5.0.0업데이트(01.20)
                     <ul>
@@ -1324,13 +1404,13 @@
             </div>
           </section>
         </div>
-        <div class="menu4 company_history" id="menu4">
+        <div class="menu4 game_history" id="menu4">
           <section class="flex">
-            <h3 class="year">19.12 ~ 19.10</h3>
-            <div class="news">
-              <section class="award flex">
-                <h4 class="season">12월</h4>
-                <ul class="working">
+            <h3 class="date">19.12 ~ 19.10</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">12월</h4>
+                <ul class="update">
                   <li>
                     2019년도 21차 Live업데이트(12.12)
                     <ul>
@@ -1345,9 +1425,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex">
-                <h4 class="season">11월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">11월</h4>
+                <ul class="update">
                   <li>
                     2019년도 20차 Live업데이트(11.28)
                     <ul>
@@ -1374,9 +1454,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex">
-                <h4 class="season">10월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">10월</h4>
+                <ul class="update">
                   <li>
                     v4.1.0업데이트(10.28)
                     <ul>
@@ -1396,11 +1476,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">19.09 ~ 19.07</h3>
-            <div class="news">
-              <section class="award flex">
-                <h4 class="season">09월</h4>
-                <ul class="working">
+            <h3 class="date">19.09 ~ 19.07</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">09월</h4>
+                <ul class="update">
                   <li>
                     2019년도 15차 Live업데이트(09.11)
                     <ul>
@@ -1409,9 +1489,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex">
-                <h4 class="season">08월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">08월</h4>
+                <ul class="update">
                   <li>
                     2019년도 14차 Live업데이트(08.29)
                     <ul>
@@ -1437,9 +1517,9 @@
                   </li>
                 </ul>
               </section>
-              <section class="award flex">
-                <h4 class="season">07월</h4>
-                <ul class="working">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">07월</h4>
+                <ul class="update">
                   <li>
                     2019년도 11차 Live업데이트(07.31)
                     <ul>
@@ -1465,11 +1545,11 @@
           </section>
 
           <section class="flex">
-            <h3 class="year">19.06 ~ 19.04</h3>
-            <div class="news">
-              <section class="award flex">
-                <h4 class="season flex">6월</h4>
-                <ul class="working">
+            <h3 class="date">19.06 ~ 19.04</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth flex">06월</h4>
+                <ul class="update">
                   <li>
                     2019년 8차 Live업데이트(06.27)
                     <ul>
@@ -1495,13 +1575,13 @@
             </div>
           </section>
         </div>
-        <div class="menu5 company_history" id="menu5">
+        <div class="menu5 game_history" id="menu5">
           <section class="flex">
-            <h3 class="year">2000</h3>
-            <div class="news">
-              <section class="award flex">
-                <h4 class="season">전체</h4>
-                <ul class="working">
+            <h3 class="date">2000</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">전체</h4>
+                <ul class="update">
                   <li>
                     세계 최초 자바 게임 서비스 LG텔레콤(EZ-JAVA)를 통해 시작
                   </li>
@@ -1518,11 +1598,11 @@
             </div>
           </section>
           <section class="flex">
-            <h3 class="year">1999</h3>
-            <div class="news">
-              <section class="award flex">
-                <h4 class="season">전체</h4>
-                <ul class="working">
+            <h3 class="date">1999</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth">전체</h4>
+                <ul class="update">
                   <li>
                     017 신세기통신 및 LG 019 와 휴대전화 게임 서비스 계약 체결
                   </li>
@@ -1533,11 +1613,11 @@
           </section>
 
           <section class="flex">
-            <h3 class="year">1998</h3>
-            <div class="news">
-              <section class="award flex">
-                <h4 class="season flex">7월</h4>
-                <ul class="working">
+            <h3 class="date">1998</h3>
+            <div class="mounths">
+              <section class="update_wrap flex">
+                <h4 class="this_mounth flex">07월</h4>
+                <ul class="update">
                   <li>컴투스 설립</li>
                 </ul>
               </section>

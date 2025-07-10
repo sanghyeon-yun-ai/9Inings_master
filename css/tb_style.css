@@ -1,13 +1,7 @@
 .inner {
   max-width: 80rem;
 }
-.pc {
-  display: none;
-}
-.logo img {
-  width: 20vw;
-  background: none;
-}
+
 .sns li {
   padding-right: 5px;
 }
@@ -33,6 +27,7 @@
 .FB:after {
   background-position: 0 -151px;
 }
+
 .first_img {
   height: 40rem;
 }

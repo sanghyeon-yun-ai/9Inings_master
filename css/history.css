@@ -1,103 +1,84 @@
-.board > ul {
-  height: 56px;
-}
-.board li {
-  float: left;
-  font-size: 15px;
-  padding-top: 15px;
-}
-.board li:first-child {
-  padding-top: 17px;
-}
-.home::after {
-  background-position: 0 -442px;
-  width: 16px;
-  height: 14px;
-}
-.direction::before,
-.direction::after {
-  background-position: -30px -441px;
-  width: 5px;
-  height: 8px;
-  margin: 0 10px;
-}
-
-.history {
+.update_title {
   font-weight: 550;
-  font-size: 36px;
+  font-size: clamp(2.4rem, 3vw, 3.6rem);
   color: #454545;
   padding: 40px 0 40px;
 }
-
+.tab {
+  gap: 0.7%;
+}
 .wrap {
-  width: 980px;
+  max-width: 98rem;
+  width: 100%;
   margin: auto;
+  padding: 0 2rem;
 }
 .wrap ul li a {
   display: block;
-  width: 182px;
+  width: 100%;
   line-height: 48px;
   height: 48px;
   background: #36363f;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
   color: #898992;
   text-align: center;
   margin-right: 2px;
+}
+.tabmenu {
+  width: 18%;
 }
 .wrap ul li.active a {
   background-color: #ce1141;
   color: #fff;
 }
 
-.company_history {
+.game_history {
   display: none;
   padding-top: 32px;
   margin-bottom: 70px;
+  width: 100%;
   border-top: 2px solid #ce1141;
   border-bottom: 1px solid #e8e8e8;
   justify-content: space-between;
 }
-.company_history.active {
+.game_history.active {
   display: block;
 }
-.year {
-  padding: 14px 90px 0 26px;
-  width: 182px;
-  font-size: 30px;
+.date {
+  padding: 2.2rem 9rem 0 2.6rem;
+  width: 18.5%;
+  font-size: clamp(2rem, 2.5vw, 3rem);
   color: #ce1141;
   border-top: solid 1px #ce1141;
 }
-.first_season {
+
+.update_wrap {
+  justify-content: space-between;
   padding-top: 10px;
 }
-.award {
-  justify-content: space-between;
-}
-.season {
+.this_mounth {
   padding-left: 20px;
-  width: 107px;
-  font-size: 18px;
+  width: 13%;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
   color: #c3c3c3;
 }
-.news {
-  width: 798px;
+.mounths {
+  width: 81.5%;
   padding: 22px 0 25px;
   border-top: 1px solid #e8e8e8;
 }
 
-.working {
-  width: 690px;
+.update {
+  width: 87%;
 }
-.working li {
-  font-size: 14px;
-  width: 630px;
-  padding-bottom: 10px;
+.update > li {
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  width: 100%;
+  padding-bottom: 2rem;
+  color: #ce1140d8;
 }
-
-footer {
-  height: 200px;
-  background-color: #132448;
-  color: #fff;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.update ul > li {
+  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  padding: 1rem 0;
+  color: #132448e1;
 }

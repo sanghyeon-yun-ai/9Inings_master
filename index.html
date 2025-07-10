@@ -5,46 +5,127 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>COM2US 9innings</title>
     <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
     <link rel="stylesheet" href="css/style_web.css" />
     <link rel="stylesheet" href="css/tb_style.css" media="(max-width:850px)" />
     <link rel="stylesheet" href="css/mb_style.css" media="(max-width:450px)" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body>
-    <header>
-      <div class="header inner flex">
-        <h1 class="logo">
-          <a href="index.html"
-            ><img src="images/logo_design_final.png" alt="9이닝스 공식 로고"
-          /></a>
-        </h1>
-        <nav>
-          <ul class="flex gnb">
-            <li><a href="history.html">History</a></li>
-            <li><a href="game_mode.html">Game mode</a></li>
-            <li><a href="player_card.html">Player Card</a></li>
-            <li><a href="items.html">Items</a></li>
-            <li><a href="club.html">club</a></li>
-          </ul>
-        </nav>
-        <div class="flex">
-          <h2 class="blind">공식sns</h2>
-          <ul class="sns flex">
-            <li>
-              <a href="https://com2us.com/corporation" class="com2us"
-                ><img src="images/com2us_small_logo.png" alt=""
-              /></a>
-            </li>
-            <li>
-              <a href="https://www.facebook.com/mlb9inningskr" class="FB"></a>
-            </li>
-          </ul>
-          <li>
-            <a href="https://cafe.naver.com/mlb9innings" class="Naver_cafe"></a>
-          </li>
-        </div>
-      </div>
-    </header>
+    <div id="App">
+      <header>
+        <div class="header inner flex">
+          <h1 class="logo">
+            <a href="index.html"
+              ><img src="images/logo_design_final.png" alt="9이닝스 공식 로고"
+            /></a>
+          </h1>
+          <nav class="pc">
+            <ul class="flex gnb">
+              <li><a href="history.html">History</a></li>
+              <li><a href="game_mode.html">Game mode</a></li>
+              <li><a href="player_card.html">Player Card</a></li>
+              <li><a href="items.html">Items</a></li>
+              <li><a href="club.html">club</a></li>
+            </ul>
+          </nav>
+          <div class="flex">
+            <h2 class="blind">공식sns</h2>
+            <ul class="sns flex">
+              <li class="pc">
+                <a href="https://com2us.com/corporation" class="com2us"
+                  ><img src="images/com2us_small_logo.png" alt=""
+                /></a>
+              </li>
+              <li class="pc">
+                <a href="https://www.facebook.com/mlb9inningskr" class="FB"></a>
+              </li>
+              <li class="pc">
+                <a
+                  href="https://cafe.naver.com/mlb9innings"
+                  class="Naver_cafe"
+                ></a>
+              </li>
+              <li class="util_menu mb" @click="isMenuOpen = true">
+                <i class="fa-solid fa-bars"></i>
+              </li>
+            </ul>
+          </div>
+          <!-- 슬라이드 메뉴 오버레이 -->
+          <div
+            class="menu_overlay"
+            v-if="isMenuOpen"
+            @click.self="isMenuOpen = false"
+          >
+            <div class="side_nav">
+              <!-- 닫기 버튼 -->
+              <i
+                class="fa-solid fa-xmark close_btn"
+                @click="isMenuOpen = false"
+              ></i>
 
+              <!-- 메뉴 내용 -->
+              <nav>
+                <ul class="util_gnb">
+                  <li><a href="history.html">History</a></li>
+                  <li><a href="game_mode.html">Game mode</a></li>
+                  <li><a href="player_card.html">Player Card</a></li>
+                  <li><a href="items.html">Items</a></li>
+                  <li><a href="club.html">Club</a></li>
+                </ul>
+              </nav>
+
+              <!-- SNS 내용 -->
+              <ul class="sns util_sns flex">
+                <li>
+                  <a href="https://com2us.com/corporation" class="com2us"
+                    ><img src="images/com2us_small_logo.png" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/mlb9inningskr"
+                    class="FB"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://cafe.naver.com/mlb9innings"
+                    class="Naver_cafe"
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            isMenuOpen: false,
+          };
+        },
+        mounted() {
+          document.addEventListener("keydown", this.handleEsc);
+        },
+        beforeUnmount() {
+          document.removeEventListener("keydown", this.handleEsc);
+        },
+        methods: {
+          handleEsc(e) {
+            if (e.key === "Escape") this.isMenuOpen = false;
+          },
+        },
+      });
+      app.mount("#App");
+    </script>
     <main>
       <div>
         <img src="images/main-b1_photo.jpg" alt="" class="first_img" />
@@ -161,10 +242,7 @@
               />
             </li>
             <li>
-              <img
-                src="screen_capture/KakaoTalk_20250623_083532294_06.jpg"
-                alt="슈프림"
-              />
+              <img src="screen_capture/JoeDiMaggio_front.jpg" alt="슈프림" />
             </li>
             <li>
               <img
@@ -179,10 +257,7 @@
               />
             </li>
             <li>
-              <img
-                src="screen_capture/KakaoTalk_20250626_164320166.jpg"
-                alt="시그니처"
-              />
+              <img src="screen_capture/AaronJudge_front.jpg" alt="시그니처" />
             </li>
             <li>
               <img
@@ -221,16 +296,10 @@
               />
             </li>
             <li>
-              <img
-                src="screen_capture/KakaoTalk_20250623_083532294_05.jpg"
-                alt="레전드"
-              />
+              <img src="screen_capture/GregMaddux_front.jpg" alt="레전드" />
             </li>
             <li>
-              <img
-                src="screen_capture/KakaoTalk_20250626_223829823_11.jpg"
-                alt="프라임"
-              />
+              <img src="screen_capture/ClaytonKershaw_front.jpg" alt="프라임" />
             </li>
             <li>
               <img
@@ -251,10 +320,7 @@
               />
             </li>
             <li>
-              <img
-                src="screen_capture/KakaoTalk_20250626_223829823_02.jpg"
-                alt="빈티지"
-              />
+              <img src="screen_capture/NolanRyan_front.jpg" alt="빈티지" />
             </li>
             <!--무한괘도로 보이기 위해서 반복 이미지-->
             <li>
@@ -264,10 +330,7 @@
               />
             </li>
             <li>
-              <img
-                src="screen_capture/KakaoTalk_20250623_083532294_06.jpg"
-                alt="슈프림"
-              />
+              <img src="screen_capture/JoeDiMaggio_front.jpg" alt="슈프림" />
             </li>
 
             <li>
@@ -283,10 +346,7 @@
               />
             </li>
             <li>
-              <img
-                src="screen_capture/KakaoTalk_20250626_164320166.jpg"
-                alt="시그니처"
-              />
+              <img src="screen_capture/AaronJudge_front.jpg" alt="시그니처" />
             </li>
             <li>
               <img
