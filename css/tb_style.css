@@ -64,7 +64,10 @@
 .box2 {
   width: 100%;
 }
-
+.box1 img,
+.box2 img {
+  height: auto;
+}
 .game_mode {
   display: flex;
   flex-direction: column;
