@@ -62,7 +62,7 @@ header {
   height: 79px;
   justify-content: space-between;
   gap: 3vw;
-  color: #182b4b;
+  color: #132448e1;
   align-items: center;
   font-size: clamp(1.2rem, 1.6vw, 1.8rem);
   transition: all 0.5s ease-in-out;
@@ -230,7 +230,7 @@ footer {
   padding: 0 2rem;
   height: 200px;
   background-color: #132448;
-  color: #f0f0f0;
+  color: #c0c0c0;
   flex-direction: column;
   justify-content: center;
   align-items: center;

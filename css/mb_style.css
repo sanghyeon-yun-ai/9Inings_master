@@ -1,6 +1,19 @@
 .info {
   padding: 5rem 1rem;
 }
+.first {
+  height: auto;
+}
+.first .intro h2 {
+  font-size: clamp(2rem, 2vw, 2.4rem);
+}
+.main_video {
+  height: 30rem;
+}
 .sns {
-  align-items: center
+  align-items: center;
+}
+.downLoad {
+  width: 30%;
+  gap: 0.5rem;
 }
