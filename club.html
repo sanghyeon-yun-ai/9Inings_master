@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COM2US 9innings</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/club.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div id="App">
+      <header>
+        <div class="header inner flex">
+          <h1 class="logo">
+            <a href="index.html"
+              ><img
+                src="images/logo_design_final_AI.png"
+                alt="9이닝스 공식 로고"
+            /></a>
+          </h1>
+          <nav class="pc">
+            <ul class="flex gnb">
+              <li><a href="history.html">History</a></li>
+              <li><a href="game_mode.html">Game mode</a></li>
+              <li><a href="player_card.html">Player Card</a></li>
+              <li><a href="items.html">Items</a></li>
+              <li><a href="club.html">club</a></li>
+            </ul>
+          </nav>
+          <div class="flex">
+            <h2 class="blind">공식sns</h2>
+            <ul class="sns flex">
+              <li class="pc">
+                <a href="https://com2us.com/corporation" class="com2us"
+                  ><img src="images/com2us_small_logo.png" alt=""
+                /></a>
+              </li>
+              <li class="pc">
+                <a href="https://www.facebook.com/mlb9inningskr" class="FB"></a>
+              </li>
+              <li class="pc">
+                <a
+                  href="https://cafe.naver.com/mlb9innings"
+                  class="Naver_cafe"
+                ></a>
+              </li>
+              <li class="util_menu mb" @click="isMenuOpen = true">
+                <i class="fa-solid fa-bars"></i>
+              </li>
+            </ul>
+          </div>
+          <!-- 슬라이드 메뉴 오버레이 -->
+          <div
+            class="menu_overlay"
+            v-if="isMenuOpen"
+            @click.self="isMenuOpen = false"
+          >
+            <div class="side_nav">
+              <!-- 닫기 버튼 -->
+              <i
+                class="fa-solid fa-xmark close_btn"
+                @click="isMenuOpen = false"
+              ></i>
+
+              <!-- 메뉴 내용 -->
+              <nav>
+                <ul class="util_gnb">
+                  <li><a href="history.html">History</a></li>
+                  <li><a href="game_mode.html">Game mode</a></li>
+                  <li><a href="player_card.html">Player Card</a></li>
+                  <li><a href="items.html">Items</a></li>
+                  <li><a href="club.html">Club</a></li>
+                </ul>
+              </nav>
+
+              <!-- SNS 내용 -->
+              <ul class="sns util_sns flex">
+                <li>
+                  <a href="https://com2us.com/corporation" class="com2us"
+                    ><img src="images/com2us_small_logo.png" alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/mlb9inningskr"
+                    class="FB"
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://cafe.naver.com/mlb9innings"
+                    class="Naver_cafe"
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            isMenuOpen: false,
+          };
+        },
+        mounted() {
+          document.addEventListener("keydown", this.handleEsc);
+        },
+        beforeUnmount() {
+          document.removeEventListener("keydown", this.handleEsc);
+        },
+        methods: {
+          handleEsc(e) {
+            if (e.key === "Escape") this.isMenuOpen = false;
+          },
+        },
+      });
+      app.mount("#App");
+    </script>
+    <main>
+      <div class="club_main_img"><img src="images/hof.png" alt="" /></div>
+      <div class="club_wrap">
+        <h2>9Inings 클럽이란?</h2>
+        <p>
+          20명의 구단주가 모여서 다른 클럽과 순위 경쟁을 위해 선의의 경쟁을 하고
+          클럽원간 커뮤니케이션을 통해 게임을 즐길수있는 컨텐츠 입니다.
+        </p>
+        <section class="club_join">
+          <h2>Chapter1. 클럽가입하기</h2>
+          <div class="inner">
+            <img
+              src="screen_capture/KakaoTalk_20250714_151247911_02.png"
+              alt=""
+            />
+
+            <!--클럽챌린지-->
+          </div>
+        </section>
+        <section class="club_battle">
+          <h2>Chapter2. 클럽 대전 & 챌린지</h2>
+
+          <div class="battel_wrap inner">
+            <img src="screen_capture/KakaoTalk_20250714_143113044.png" alt="" />
+            <button id="open_battel" class="open_battle">클럽대전 진행</button>
+            <p>각 배너를 누르시면 자세한 설명이 나옵니다.</p>
+            <!-- 모달 오버레이 (처음에는 display: none) -->
+            <div class="modal-overlay" id="battel_modal">
+              <div class="slider">
+                <!-- 닫기 버튼 -->
+                <span class="close-btn closeModal">&times;</span>
+
+                <!-- 이미지 표시 영역 -->
+                <img
+                  id="sliderImage"
+                  src="screen_capture/KakaoTalk_20250714_155437106_09.png"
+                  alt="슬라이드 이미지"
+                />
+
+                <!-- 이전 / 다음 버튼 -->
+                <button class="prev prevBtn">&#10094;</button>
+                <button class="next nextBtn">&#10095;</button>
+              </div>
+            </div>
+            <!--클럽챌린지-->
+            <button id="open_challenge" class="open_challenge">
+              클럽대전 진행
+            </button>
+            <p>각 배너를 누르시면 자세한 설명이 나옵니다.</p>
+            <!-- 모달 오버레이 (처음에는 display: none) -->
+            <div class="modal-overlay" id="">
+              <div class="slider">
+                <!-- 닫기 버튼 -->
+                <span class="close-btn" id="">&times;</span>
+
+                <!-- 이미지 표시 영역 -->
+                <img
+                  id=""
+                  src="screen_capture/KakaoTalk_20250714_155437106_09.png"
+                  alt="슬라이드 이미지"
+                />
+
+                <!-- 이전 / 다음 버튼 -->
+                <button class="prev" id="">&#10094;</button>
+                <button class="next" id="">&#10095;</button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="club_challenge"><h2>Chapter3. 클럽 챌린지</h2></section>
+        <section class="club_coin"><h2>Chapter4. 클럽 코인</h2></section>
+      </div>
+    </main>
+    <script src="css/club.js"></script>
+    <footer class="flex">
+      <div>
+        <p>
+          본 페이지는 수익 창출을 위한 사이트가 아닌 개인 포트폴리오 용도 및
+          게임 공략 용도로 제작 되었으며 사진을 무단 사용할경우 저작권이 있는
+          사이트로 부터 불이익을 받을수있습니다.
+        </p>
+        <address>@copyright master</address>
+      </div>
+    </footer>
+  </body>
+</html>
