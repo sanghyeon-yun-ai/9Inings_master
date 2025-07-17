@@ -1,13 +1,59 @@
 main {
   position: relative;
 }
+.first_wrap {
+  position: relative;
+}
 .first_img {
+  padding-top: 8rem;
   width: 100%;
-  height: 60rem;
+  height: auto;
   opacity: 0.9;
 }
+.ball {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: clamp(4rem, 6vw, 7rem);
+  height: auto;
+  background: radial-gradient(circle, #ffffff 70%, #cccccc 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: curveIn 3s ease-in-out 1;
+  z-index: 1000;
+}
+
+@keyframes curveIn {
+  0% {
+    transform: translate(-50%, -50%) scale(0.3);
+    top: 30%;
+    left: 60%;
+  }
+  25% {
+    top: 35%;
+    left: 70%;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  50% {
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  75% {
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  100% {
+    top: 50%;
+    left: 10%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 .first {
-  height: 700px;
+  height: 70rem;
   justify-content: space-between;
   gap: 5rem;
 }
@@ -57,6 +103,7 @@ main {
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   gap: 2rem;
+  font-family: "GmarketSansMedium";
 }
 .game_mode img {
   max-width: 60rem;
@@ -146,6 +193,7 @@ main {
   margin: 1rem 0 2rem;
 }
 .item p {
+  font-family: "GmarketSansMedium";
   font-size: clamp(1.2rem, 2vw, 1.6rem);
 }
 .club_wrap {
@@ -172,6 +220,7 @@ main {
   gap: 5rem;
   background-color: #d0d0d091;
   border-radius: 10px;
+  padding: 2rem 2rem;
 }
 .club h3 {
   font-size: 2.4rem;
@@ -206,6 +255,7 @@ main {
   border-top: 1px #ccc solid;
 }
 .club p {
+  font-family: "GmarketSansMedium";
   font-size: clamp(1.2rem, 2vw, 1.6rem);
 }
 

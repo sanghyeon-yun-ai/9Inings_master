@@ -1,5 +1,12 @@
 @charset "utf-8";
 @font-face {
+  font-family: "KBO-Dia-Gothic_medium";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/KBO-Dia-Gothic_bold.woff")
+    format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
   font-family: "GmarketSansMedium";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
     format("woff");
@@ -13,6 +20,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 html {
   font-size: 62.5%;
   scroll-behavior: smooth;
@@ -20,7 +28,7 @@ html {
 body {
   color: #132448e1;
   font-size: 1.6rem;
-  font-family: "GmarketSansMedium", "Pretendard-Regular", sans-serif;
+  font-family: "KBO-Dia-Gothic_medium", "Pretendard-Regular", sans-serif;
 }
 header {
   position: fixed;
@@ -45,15 +53,27 @@ header {
   font-weight: 600;
   color: #1e90ff;
 }
+
 .logo img {
+  width: clamp(10rem, 9vw, 19rem);
   display: block;
-  width: 19rem;
   background: none;
+  height: auto;
 }
 
 .header {
   justify-content: space-between;
   align-items: center;
+  animation: shrink-tapMenu linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0 1000px;
+  z-index: 10000;
+}
+@keyframes shrink-tapMenu {
+  to {
+    z-index: 1000;
+    color: #003366;
+  }
 }
 .gnb {
   padding: 0 1rem;
@@ -74,17 +94,14 @@ header {
 .sns {
   align-items: center;
 }
+.sns > *:hover {
+  scale: 1.2;
+}
 .sns li {
   justify-content: center;
   padding-right: 10px;
 }
-.Naver_cafe::before,
-.FB::before {
-  content: "|";
-  display: inline-block;
-  vertical-align: middle;
-  margin: 0 8px 12px 0;
-}
+
 .Naver_cafe:after {
   content: "";
   display: inline-block;
@@ -94,7 +111,7 @@ header {
   background-size: 200px 360px;
   width: 30px;
   height: 30px;
-  margin-top: 13px;
+  margin-top: 7px;
 }
 .FB:after {
   content: "";
@@ -105,7 +122,7 @@ header {
   background-size: 200px 360px;
   width: 30px;
   height: 30px;
-  margin-top: 13px;
+  margin-top: 7px;
 }
 
 /*여기서 부터 유틸 슬라이드 메뉴*/
@@ -187,10 +204,7 @@ header {
 
 @media screen and (max-width: 850px) {
   header {
-    padding: 2rem 2rem;
-  }
-  .logo img {
-    background: none;
+    padding: 0 2rem;
   }
   .sns li {
     padding-right: 5px;

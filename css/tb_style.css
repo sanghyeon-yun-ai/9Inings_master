@@ -29,8 +29,10 @@
 }
 
 .first_img {
-  height: 40rem;
+  padding-top: 5rem;
+  opacity: 0.9;
 }
+
 .first {
   flex-direction: column;
   padding-top: 100px;
