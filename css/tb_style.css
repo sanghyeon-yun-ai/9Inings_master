@@ -68,7 +68,7 @@
   height: auto;
 }
 .info {
-  padding: 7.5rem 2rem;
+  padding: 7.5rem 1rem;
 }
 .info h2 {
   text-align: center;
@@ -98,15 +98,16 @@
 }
 .bottom_row {
   display: flex;
+  padding: 0;
   flex-direction: column;
 }
 .item_list {
   display: grid;
   grid-template-columns: repeat(3, minmax(20rem, 1fr));
   grid-template-rows: 15rem 15rem;
-  gap: 3rem;
+  gap: 1rem;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 0;
 }
 
 .item {

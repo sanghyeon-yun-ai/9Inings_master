@@ -72,6 +72,7 @@ main {
   font-style: italic;
 }
 .intro p {
+  font-family: "GmarketSansMedium";
   padding-top: 2rem;
   font-size: clamp(1.6rem, 2vw, 2rem);
 }
@@ -175,7 +176,7 @@ main {
 }
 
 .item {
-  background-color: #1e8fff8c;
+  background-color: #d9d9d9;
   border-radius: 10px;
   padding: 2rem;
 }
@@ -204,7 +205,7 @@ main {
   padding: 5rem 2rem;
 }
 .club_wrap h2 {
-  color: #c0c0c0;
+  color: #f0f0f0;
   padding: 5rem 0;
   text-align: center;
   font-size: 3.2rem;
@@ -268,7 +269,7 @@ main {
   }
   .club_wrap {
     height: 100%;
-    padding: 3rem 0 7rem;
+    padding: 3rem 1rem 7rem;
   }
 }
 @media screen and (max-width: 700px) {
