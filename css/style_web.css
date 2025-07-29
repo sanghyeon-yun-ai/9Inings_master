@@ -176,7 +176,7 @@ main {
 }
 
 .item {
-  background-color: #d9d9d9;
+  background-color: #cbeafe;
   border-radius: 10px;
   padding: 2rem;
 }
@@ -205,7 +205,7 @@ main {
   padding: 5rem 2rem;
 }
 .club_wrap h2 {
-  color: #f0f0f0;
+  color: #d9d9d9;
   padding: 5rem 0;
   text-align: center;
   font-size: 3.2rem;
@@ -217,42 +217,23 @@ main {
   grid-template-columns: repeat(3, minmax(20rem, 1fr));
   grid-template-rows: 15rem 15rem;
   gap: 5rem;
-  background-color: #d0d0d091;
+  background-color: #d9d9d9;
   border-radius: 10px;
   padding: 2rem 2rem;
 }
 .club h3 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   line-height: 40px;
-  padding: 2rem 0 3rem 4rem;
-  background: url(../images/MD_B.png) no-repeat 0 2rem;
+  padding: 1rem 0 2rem 4rem;
+  background: url(../images/MD_B.png) no-repeat 0 1.3rem;
   background-size: 3.2rem 3.2rem;
 }
 .club li {
+  padding: 1rem;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.sidebar {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 3rem;
-  width: 8%;
-  border-radius: 15px;
-  font-size: clamp(1.6rem, 2vw, 1.8rem);
-  background-color: #d0d0d091;
-  border-left: 1px solid #ccc;
-}
-.sidebar li {
-  width: 100%;
-  height: auto;
-  line-height: 5rem;
-  text-align: center;
-}
-.sidebar li ~ li {
-  border-top: 1px #ccc solid;
-}
 .club p {
   font-family: "GmarketSansMedium";
   font-size: clamp(1.2rem, 2vw, 1.6rem);

@@ -23,21 +23,22 @@
   position: relative;
 }
 .pretty-btn {
-  background: linear-gradient(90deg, #4f8cff 0%, #6edbff 100%);
-  color: #fff;
+  background: linear-gradient(90deg, #041e42 0%, #bf0d3e 100%);
+  color: #d9d9d9;
   border: none;
   border-radius: 2.5rem;
   padding: 1.2rem 3.5rem;
   font-size: 2rem;
   font-weight: bold;
-  margin: 2rem 2rem 2rem 2rem;
+  margin: 5rem 2rem 0 2rem;
   box-shadow: 0 4px 16px rgba(79, 140, 255, 0.15);
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
   outline: none;
+  font-family: "GmarketSansMedium";
 }
 .pretty-btn:hover {
-  background: linear-gradient(90deg, #6edbff 0%, #4f8cff 100%);
+  background: linear-gradient(90deg, #bf0d3e 0%, #041e42 100%);
   transform: translateY(-2px) scale(1.04);
 }
 .modal-overlay {
@@ -83,7 +84,7 @@
   top: -2.5rem;
   right: -5rem;
   font-size: 7rem;
-  color: #4f8cff;
+  color: #cbeafe;
   cursor: pointer;
   background: none;
   border: none;
@@ -91,19 +92,19 @@
   transition: color 0.2s;
 }
 .close-x:hover {
-  color: #ff6e6e;
+  color: #041e42;
 }
 .arrow-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #eaf3ff;
+  background: #cbeafe;
   border: none;
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
   font-size: 3rem;
-  color: #4f8cff;
+  color: #041e42;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(79, 140, 255, 0.08);
   display: flex;
@@ -112,8 +113,8 @@
   transition: background 0.2s, color 0.2s;
 }
 .arrow-btn:hover {
-  background: #4f8cff;
-  color: #fff;
+  background: #041e42;
+  color: #d9d9d9;
 }
 .arrow-left {
   left: -2.7rem;

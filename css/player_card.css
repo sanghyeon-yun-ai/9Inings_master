@@ -24,7 +24,7 @@
   cursor: pointer;
   font-size: clamp(1rem, 1.8vw, 2rem);
   text-indent: 3.3rem;
-  background-color: #d9d9d9;
+  background-color: #cbeafe;
   font-family: "GmarketSansMedium";
   line-height: 5rem;
 }
@@ -41,15 +41,16 @@
   transition: all 0.3s ease-in-out;
 }
 .card_wrap {
-  background-color: #f2f2f2;
+  background-color: #cbeafe;
   border-radius: 15px;
   margin: 12.5rem auto;
+  font-family: "GmarketSansMedium";
 }
 .card_info {
   padding: 5rem;
 }
 .small_title {
-  font-size: clamp(1.6rem, 3vw, 2.8rem);
+  font-size: clamp(1.6rem, 3vw, 3.2rem);
   line-height: 3rem;
   text-align: center;
 }
@@ -66,14 +67,14 @@
   background-color: #132448;
 }
 .card_type {
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
   font-weight: 500;
   padding-bottom: 3em;
 }
 .card_feature,
 .card_affect,
 .card_source {
-  font-size: clamp(1.4rem, 2.8vw, 1.8rem);
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
   padding-bottom: 2rem;
 }
 @media screen and (max-width: 850px) {

@@ -1,6 +1,11 @@
+.first_img {
+  padding-top: clamp(5.5rem, 8vw, 8rem);
+  width: 100%;
+  opacity: 0.9;
+}
 .update_title {
   font-weight: 550;
-  font-size: clamp(2.4rem, 3vw, 3.6rem);
+  font-size: clamp(2.4rem, 3vw, 3.2rem);
   padding: 40px 0 40px;
 }
 .tab {
@@ -23,6 +28,10 @@
   text-align: center;
   margin-right: 2px;
   border-radius: 1.5rem;
+}
+.wrap ul li a:hover {
+  background-color: #041e42;
+  color: #d9d9d9;
 }
 .tabmenu {
   width: 18%;
@@ -56,9 +65,9 @@
   padding-top: 10px;
 }
 .this_mounth {
-  padding-left: 20px;
+  padding-left: 1rem;
   width: 13%;
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-size: clamp(1.4rem, 2vw, 2rem);
 }
 .mounths {
   width: 81.5%;
@@ -70,7 +79,7 @@
   width: 87%;
 }
 .update > li {
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-size: clamp(1.4rem, 2vw, 2rem);
   width: 100%;
   padding-bottom: 2rem;
   color: #bf0d3e;
